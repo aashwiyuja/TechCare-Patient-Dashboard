@@ -7,8 +7,7 @@ A responsive web-based dashboard designed for healthcare professionals to monito
 ## Live Demo
 
 You can view the live version of the dashboard here:  
-**[https://yourusername.github.io/patient-dashboard](https://yourusername.github.io/patient-dashboard)**  
-> Replace `yourusername` with your actual GitHub username.
+**[https://aashwiyuja.github.io/TechCare-Patient-Dashboard](https://aashwiyuja.github.io/TechCare-Patient-Dashboard)**  
 
 ---
 

@@ -1,0 +1,807 @@
+:root {
+    /* Colors */
+    --color-primary: #705AAA;
+    --color-secondary: #CBC8D4;
+    --color-active-bg-1: #01F0D0;
+    --color-active-bg-2: #D8FCF7;
+    --color-accent: #0BD984;
+    --color-dark: #072635;
+    --color-dark-variant-1: #0C3D5D;
+    --color-dark-variant-2: #084C77;
+    --color-dark-variant-3: #055A92;
+    --color-dark-variant-4: #006AAC;
+    --color-dark-variant-5: #007BC7;
+    --color-gray: #707070;
+    --color-light-gray: #F6F6F6;
+    --color-border: #EDEDED;
+    --color-black: #000000;
+    --color-muted: #878787;
+    --color-white: #FFFFFF;
+    --color-alert: #FF6200;
+
+  /* Typography */
+  --font-family-manrope: 'Manrope', sans-serif;
+  --font-style-normal: normal;
+  --font-weight-800: 800;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --font-size-14: 14px;
+  --font-size-18: 18px;
+  --font-size-24: 24px;
+  --letter-spacing-0: 0px;
+  --line-height-19: 19px;
+  --line-height-24: 24px;
+  --line-height-33: 33px;
+  --text-transform-titlecase: capitalize;
+}
+
+.card-title-24pt {
+  font-family: var(--font-family-manrope);
+  font-style: var(--font-style-normal);
+  font-weight: var(--font-weight-800);
+  font-size: var(--font-size-24);
+  line-height: var(--line-height-33);
+  letter-spacing: var(--letter-spacing-0);
+  color: var(--color-dark);
+}
+  
+.inner-card-title-18pt {
+  font-family: var(--font-family-manrope);
+  font-style: var(--font-style-normal);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-18);
+  line-height: var(--line-height-24);
+  letter-spacing: var(--letter-spacing-0);
+  color: var(--color-dark);
+  text-transform: var(--text-transform-titlecase);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-manrope);
+  background-color: #f0f0f0;
+}
+
+/* Navigation */
+.top-nav {
+  position: relative;
+  width: 1418px;
+  height: 72px;
+  margin: 18px auto;
+  background: var(--color-white);
+  border-radius: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+  
+.nav-logo img {
+  width: 211px;
+  height: 48px;
+}
+  
+.nav-links ul {
+  display: flex;
+  gap: 56px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+  
+.nav-links li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-dark);
+  cursor: pointer;
+}
+
+.nav-links li.active {
+  background: #01F0D0;
+  border-radius: 41px;
+  padding: 15px 18px;
+  color: #072635;
+}
+  
+.nav-user {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+  
+.profile-pic {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+  
+.user-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+  
+.user-details .name {
+  font-family: var(--font-family-manrope);
+  font-style: var(--font-style-normal);
+  font-weight: var(--font-weight-bold);       
+  font-size: var(--font-size-14);             
+  line-height: var(--line-height-19);         
+  letter-spacing: var(--letter-spacing-0);
+  color: var(--color-dark);                   
+  text-align: left;
+  opacity: 1;
+}
+  
+.user-details .title {
+  font-family: var(--font-family-manrope);
+  font-style: var(--font-style-normal);
+  font-weight: var(--font-weight-normal);     
+  font-size: var(--font-size-14);             
+  line-height: var(--line-height-19);         
+  letter-spacing: var(--letter-spacing-0);
+  color: var(--color-gray);                   
+  text-align: left;
+  opacity: 1;
+}
+  
+.divider {
+  width: 1px;
+  height: 44px;
+  background-color: var(--color-border); 
+  margin: 0 12px;
+}
+  
+.settings-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}
+  
+.more-icon {
+  width: 4px;
+  height: 18px;
+}
+
+  /* left side container */
+.sidebar-container {
+  position: absolute;
+  top: 112px;
+  left: 18px;
+  width: 327px;
+  height: 1088px;
+  background-color: var(--color-white);
+  border-radius: 16px;
+  opacity: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 0 20px; /* ← Add horizontal padding */
+  display: flex;
+  flex-direction: column;
+}
+
+
+.sidebar-header {
+  position: relative;
+  width: 100%;
+  height: 60px; /* enough to contain both elements */
+}
+
+.sidebar-title {
+  position: absolute;
+  top: 20px; /* 142px - 122px (container top) */
+  font-family: var(--font-family-manrope);
+  font-style: normal;
+  font-weight: var(--font-weight-800);
+  font-size: var(--font-size-24);
+  line-height: var(--line-height-33);
+  color: var(--color-dark);
+  margin: 0;
+}
+
+.sidebar-header {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 28px; /* or whatever aligns it vertically */
+  right: 10px;
+  width: 18px;
+  height: 18px;
+}
+
+.patient-list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+}
+
+.patient-card {
+  width: 317px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-white);
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.patient-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 0;
+}
+
+.patient-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+}
+
+.patient-name {
+  font-family: var(--font-family-manrope);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-19);
+  color: var(--color-dark);
+}
+
+.patient-details {
+  font-family: var(--font-family-manrope);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-19);
+  color: var(--color-gray);
+}
+
+.patient-menu {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  width: 18px;
+  height: 18px;
+}
+
+.patient-scroll-wrapper {
+  max-height: 980px;
+  overflow-y: auto;
+}
+
+.patient-scroll-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.patient-scroll-wrapper::-webkit-scrollbar-track {
+  background: #E3E4E6;
+  border-radius: 3px;
+}
+
+.patient-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: #072635;
+  border-radius: 3px;
+}
+
+/* Right side Container */
+
+.right-panel-container {
+  position: absolute;
+  left: 1136px;
+  width: 317px;
+  height: 740px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  opacity: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* optional for depth */
+  padding: 16px;
+}
+
+.patient-details-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers the image horizontally */
+  padding-top: 40px; /* adjust to match your design */
+}
+
+.details-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto; /* centers it horizontally */
+  display: block;
+}
+
+.info-icon {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.details-name {
+  font-family: 'Manrope', sans-serif;
+  font-size: 32px;
+  font-weight: 800; /* ExtraBold */
+  color: #072635;
+  text-align: center;
+  width: 100%;
+  margin-top: 16px;
+  text-transform: capitalize;
+  letter-spacing: 0px;
+  line-height: 40px;
+}
+
+.details-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* increased for better vertical rhythm */
+}
+
+.info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.info-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+}
+
+.info-label {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500; /* Medium */
+  font-size: 14px;
+  line-height: 19px;
+  color: #072635;
+  text-transform: capitalize;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.info-value {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700; /* Bold */
+  font-size: 14px;
+  line-height: 19px;
+  color: #072635;
+  text-transform: capitalize;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.details-button {
+  margin-top: 40px;
+  width: 220px;
+  height: 41px;
+  background: #01F0D0;
+  border: none;
+  border-radius: 41px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #072635;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Lab Results Container */
+
+.lab-results-container {
+  position: absolute;
+  top: 795px; /* assuming .right-panel-container ends at 740px + 296px + 32px */
+  left: 1136px;
+  width: 347px;
+  height: 296px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  opacity: 1;
+  overflow: hidden;
+}
+
+
+.lab-results-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 32px;
+  color: #072635;
+  text-align: left;
+  margin: 0;
+}
+
+.lab-result-name {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400; /* Regular */
+  font-size: 13px;
+  line-height: 19px;
+  color: #072635;
+  text-transform: capitalize;
+  text-align: left;
+}
+
+.lab-results-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 175px; /* fits within container after title */
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.lab-result-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px 0;
+  color: #072635;
+}
+
+.lab-result-name {
+  flex-grow: 1;
+}
+
+
+.lab-result-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-right: 36px;
+}
+
+.lab-results-list {
+  max-height: 195px;
+  overflow-y: auto;
+  padding-right: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.lab-results-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.lab-results-list::-webkit-scrollbar-track {
+  background: #E3E4E6;
+  border-radius: 3px;
+}
+
+.lab-results-list::-webkit-scrollbar-thumb {
+  background-color: #072635;
+  border-radius: 3px;
+}
+
+.lab-results-list::-webkit-scrollbar-button {
+  display: none;
+  height: 0;
+}
+
+.diagnosis-title {
+  font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 32px;
+    color: #072635;
+    text-align: left;
+    margin: 0;
+}
+
+/*Diagnosis List */
+
+.diagnosis-list-container {
+  position: absolute;
+  top: 812px;
+  left: 406px;
+  width: 726px;
+  height: 388px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 16px;
+  box-sizing: border-box;
+  opacity: 1;
+}
+
+.diagnosis-list-title {
+  position: absolute;
+  top: 847px; /* container top (827px) + 20px offset */
+  left: 437px;
+  width: 176px;
+  height: 33px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800; /* ExtraBold */
+  font-size: 24px;
+  line-height: 33px;
+  letter-spacing: 0px;
+  color: #072635;
+  text-align: left;
+  opacity: 1;
+  margin: 0;
+}
+
+.diagnosis-scroll-wrapper {
+  margin-top: 20px;
+  max-height: 300px; /* 48px header + 178px scrollable body */
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+/* Scrollbar styling */
+.diagnosis-scroll-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.diagnosis-scroll-wrapper::-webkit-scrollbar-track {
+  background: #E3E4E6;
+  border-radius: 3px;
+}
+
+.diagnosis-scroll-wrapper::-webkit-scrollbar-thumb {
+  background-color: #072635;
+  border-radius: 3px;
+}
+
+.diagnosis-scroll-wrapper::-webkit-scrollbar-button {
+  display: none;
+  height: 0;
+}
+
+/* Table styling */
+.diagnosis-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  color: #072635;
+}
+
+/* Header row */
+.diagnosis-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #F6F7F8;
+}
+
+.diagnosis-table th {
+  padding: 12px 24px;
+  font-weight: 700;
+  text-align: left;
+  background: #F6F7F8;
+}
+
+/* Rounded corners on header */
+.diagnosis-table th:first-child {
+  border-radius: 24px 0 0 24px;
+}
+
+.diagnosis-table th:last-child {
+  border-radius: 0 24px 24px 0;
+}
+
+/* Body rows */
+.diagnosis-table td {
+  padding: 12px 24px;
+  font-weight: 400;
+  line-height: 19px;
+  background: #FFFFFF;
+  border: none;
+}
+
+/* Diagnosis History */
+.diagnosis-history-container {
+  position: absolute;
+  top: 112px;
+  left: 406px;
+  width: 726px;
+  height: 673px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 16px;
+  box-sizing: border-box;
+  opacity: 1;
+}
+
+/* Respiratory Rate Container */
+.respiratory-rate-container {
+  position: absolute;
+  top: 405px;
+  left: 20px;
+  width: 208px;
+  height: 242px;
+  background: #E0F3FA;
+  border-radius: 12px;
+  opacity: 1;
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+/* Temperature Container */
+.temperature-container {
+  position: absolute;
+  top: 405px;
+  left: 260px;
+  width: 208px;
+  height: 242px;
+  background: #FFE6E9;
+  border-radius: 12px;
+  opacity: 1;
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+/* Heart Rate Container */
+.heart-rate-container {
+  position: absolute;
+  top: 405px;
+  left: 498px;
+  width: 208px;
+  height: 242px;
+  background: #FFE6F1;
+  border-radius: 12px;
+  opacity: 1;
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+.respiratory-rate-container h4,
+.temperature-container h4,
+.heart-rate-container h4 {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500; /* Medium */
+  font-size: 16px;
+  line-height: 22px;
+  color: #072635;
+  text-align: left;
+  text-transform: capitalize;
+  margin: 12px 0 4px;
+}
+
+.vital-value {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800; /* ExtraBold */
+  font-size: 30px;
+  line-height: 41px;
+  color: #072635;
+  text-align: left;
+  margin: 0;
+}
+
+.vital-status {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400; /* Regular */
+  font-size: 14px;
+  line-height: 19px;
+  color: #072635;
+  text-align: left;
+  margin-top: 4px;
+}
+
+/* Blood Pressure Container */
+.blood-pressure-container h3{
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600; /* Medium */
+  font-size: 16px;
+  line-height: 22px;
+  color: #072635;
+  text-align: left;
+  text-transform: capitalize;
+  margin: 12px 0 4px;
+  padding: 20px;
+}
+
+.blood-pressure-container {  
+  left: 20px;
+  width: 688px; 
+  height: 318px; 
+  background: #F4F0FE; 
+  border-radius: 12px; 
+  opacity: 1; 
+  box-sizing: border-box; 
+}
+
+.bp-chart {
+  width: 480px;
+  height: 250px;
+}
+
+.bp-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bp-readings {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  padding-left: 20px;
+}
+
+.reading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  font-size: 20px;
+}
+
+.label-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.systolic-dot {
+  background-color: #E66FD2;
+}
+
+.diastolic-dot {
+  background-color: #8C6FE6;
+}
+
+.label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.value {
+  font-weight: 600;
+  color: #072635;
+}
+
+.status {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400; /* Regular */
+  font-size: 14px;
+}
+
+.divider-horizontal {
+  width: 160px;
+  height: 2px;
+  background-color: #CBC8D4;
+  margin: 6px 0;
+}
+
+.arrow {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400; /* Regular */
+  font-size: 14px;
+  line-height: 19px;
+  color: #072635;
+  margin-right: 6px;
+  display: inline-block;
+}

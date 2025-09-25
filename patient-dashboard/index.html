@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Health Care Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="script.js"></script>
+  <script src="bpChart.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- Navigation -->
+    <header class="top-nav">
+      <div class="nav-logo">
+        <img src="assets/TestLogo.svg" alt="TechCare Logo" />
+      </div>
+
+      <nav class="nav-links">
+        <ul>
+          <li><img src="assets/home_FILL0_wght300_GRAD0_opsz24.svg" alt="Overview" /><span>Overview</span></li>
+          <li class="active"><img src="assets/group_FILL0_wght300_GRAD0_opsz24.svg" alt="Patients" /><span>Patients</span></li>
+          <li><img src="assets/calendar_today_FILL0_wght300_GRAD0_opsz24.svg" alt="Schedule" /><span>Schedule</span></li>
+          <li><img src="assets/chat_bubble_FILL0_wght300_GRAD0_opsz24.svg" alt="Message" /><span>Message</span></li>
+          <li><img src="assets/credit_card_FILL0_wght300_GRAD0_opsz24.svg" alt="Transactions" /><span>Transactions</span></li>
+        </ul>
+      </nav>
+
+      <div class="nav-user">
+        <img src="assets/senior-woman-doctor-and-portrait-smile-for-health-2023-11-27-05-18-16-utc.png" alt="Dr. Jesse Simmons" class="profile-pic" />
+        <div class="user-details">
+          <span class="name">Dr. Jose Simmons</span>
+          <span class="title">General Practitioner</span>
+        </div>
+        <div class="divider"></div>
+        <img src="assets/settings_FILL0_wght300_GRAD0_opsz24.svg" alt="Settings" class="settings-icon" />
+        <img src="assets/more_vert_FILL0_wght300_GRAD0_opsz24.svg" alt="More Options" class="more-icon" />
+      </div>
+    </header>
+
+    <!-- Sidebar and Panels -->
+    <aside class="sidebar-container">
+      <div class="sidebar-header">
+        <h2 class="sidebar-title">Patients</h2>
+        <img src="assets/search_FILL0_wght300_GRAD0_opsz24.svg" alt="Search" class="search-icon" />
+      </div>
+      <div class="patient-scroll-wrapper">
+        <div class="patient-list" id="patientList">
+          <!-- Patient cards will be injected here -->
+        </div>
+      </div>
+
+      <div class="right-panel-container">
+        <h3 class="sidebar-title">Select Patient</h3>
+        <div class="profile-image" id="profileImage"></div>
+        <!-- Patient details will be dynamically injected here -->
+      </div>
+
+      <div class="lab-results-container">
+        <h3 class="lab-results-title">Lab Results</h3>
+        <div class="lab-results-list" id="labResultsList">
+          <!-- Lab details will be dynamically injected here -->
+        </div>
+      </div>
+    </aside>
+
+    <!-- Diagnosis List -->
+    <div class="diagnosis-list-container">
+      <h3 class="diagnosis-title">Diagnosis List</h3>
+      <div class="diagnosis-scroll-wrapper">
+        <table class="diagnosis-table">
+          <thead>
+            <tr>
+              <th>Problem/Diagnosis</th>
+              <th>Description</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="diagnosisTableBody">
+            <!-- JS injects rows here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Diagnosis History -->
+    <div class="diagnosis-history-container">
+      <h3 class="diagnosis-title">Diagnosis History</h3>
+
+      <div class="blood-pressure-container">
+        <h3>Blood Pressure</h3>
+        <div class="bp-content">
+          <!-- Left side: chart -->
+          <div class="bp-chart">
+            <canvas id="bpChart" width="417" height="187"></canvas>
+          </div>
+          <!-- Right side: chart -->
+          <div class="bp-readings">
+            <div class="reading">
+              <div class="label-row">
+                <span class="dot systolic-dot"></span>
+                <span class="label">Systolic</span>
+              </div>
+              <span class="value" id="systolicValue"></span>
+              <span class="status" id="systolicStatus">
+                <span class="arrow" id="systolicArrow"></span>
+                <span class="status-text"></span>
+              </span>
+            </div>
+            <div class="divider-horizontal"></div>
+            <div class="reading">
+              <div class="label-row">
+                <span class="dot diastolic-dot"></span>
+                <span class="label">Diastolic</span>
+              </div>
+              <span class="value" id="diastolicValue"></span>
+              <span class="status" id="diastolicStatus">
+                <span class="arrow" id="diastolicArrow"></span>
+                <span class="status-text"></span>
+              </span>
+            </div> 
+        </div>
+        <!--Subcontainers-->
+        <div class="respiratory-rate-container">
+          <img class="vital-icon" src="assets/respiratory rate.svg" alt="Lungs Icon" />
+          <h4>Respiratory Rate</h4>
+          <div class="vital-data" id="respiratoryRate"></div>
+        </div>
+
+        <div class="temperature-container">
+          <img class="vital-icon" src="assets/temperature.svg" alt="Thermometer Icon" />
+          <h4>Temperature</h4>
+          <div class="vital-data" id="temperature"></div>
+        </div>
+
+        <div class="heart-rate-container">
+          <img class="vital-icon" src="assets/HeartBPM.svg" alt="Heart Icon" />
+          <h4>Heart Rate</h4>
+          <div class="vital-data" id="heartRate"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

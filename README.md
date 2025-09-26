@@ -6,6 +6,7 @@ Healthcare professionals often struggle with fragmented patient data spread acro
 ## App Demo
 
 <img src="images/a.png" width="400"/> <img src="images/b.png" width="400"/>
+
 <img src="images/c.png" width="400"/> <img src="images/d.png" width="400"/>
 
 ## Strategies Tried  

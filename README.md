@@ -3,6 +3,11 @@
 ## Problem Statement  
 Healthcare professionals often struggle with fragmented patient data spread across multiple systems, leading to inefficient diagnosis, poor tracking of vitals, and limited visibility into patient history. The goal was to create a unified, responsive dashboard that consolidates patient information, vital signs, diagnosis history, and lab results into a single, intuitive interface.
 
+## App Demo
+
+<img src="images/a.png" width="400"/> <img src="images/b.png" width="400"/>
+<img src="images/c.png" width="400"/> <img src="images/d.png" width="400"/>
+
 ## Strategies Tried  
 - Built a static layout using **HTML/CSS** to define the core structure  
 - Used **Chrome DevTools** to inspect and manually adjust layout sizing and alignment  

@@ -42,7 +42,8 @@ Healthcare professionals often struggle with fragmented patient data spread acro
 
 ## Technologies Used  
 - **HTML5** & **CSS3**  
-- **JavaScript (ES6)**  
+- **JavaScript (ES6)**
+- **Node.js** 
 - **Vue.js** (Composition API)
 - **Chart.js** for interactive data visualizations 
 - **Chrome DevTools** for layout debugging  

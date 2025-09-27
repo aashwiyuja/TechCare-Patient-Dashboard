@@ -289,7 +289,6 @@ function renderBloodPressureChart(bpData) {
   const diastolic = bpData.map(entry => entry.diastolic);
 
   const canvas = document.getElementById('bpChart');
-  console.log("Blood pressure data received:", bpData);
   console.log("Canvas element:", canvas);
 
   if (!canvas) {
@@ -402,5 +401,6 @@ function renderBloodPressureChart(bpData) {
   );
 
 }
+
 
 

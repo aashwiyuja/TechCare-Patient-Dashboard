@@ -283,7 +283,7 @@ function renderVitals(patient) {
 //Blood pressure Charts
 function renderBloodPressureChart(bpData) {
   const labels = bpData.map(entry =>
-    new Date(entry.month).toLocaleString('default', { month: 'short', year: 'numeric' })
+    new Date(entry.date).toLocaleString('default', { month: 'short', year: 'numeric' })
   );
   const systolic = bpData.map(entry => entry.systolic);
   const diastolic = bpData.map(entry => entry.diastolic);
@@ -401,3 +401,4 @@ function renderBloodPressureChart(bpData) {
   );
 
 }
+

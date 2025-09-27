@@ -17,11 +17,75 @@ app.mount('#app');
 let patients = [];
 
 async function fetchPatients() {
-  const res = await fetch('http://localhost:3000/api/patients');
-  const data = await res.json();
-  console.log("Fetched patients:", data);
-  patients = data;
+  try {
+    const res = await fetch('http://localhost:3000/api/patients');
+    const data = await res.json();
+    console.log("Fetched patients:", data);
+    patients = data;
+  } catch (error) {
+    console.warn("API fetch failed, using hardcoded patient");
+
+    patients = [
+      {
+        id: 4,
+        name: "Jessica Taylor",
+        gender: "Female",
+        age: 28,
+        dob: "1996-08-23",
+        contact: "(415) 555-1234",
+        emergency_contact: "(415) 555-5678",
+        insurance: "Sunrise Health Assurance",
+        image: "assets/Layer 2.png",
+        image2: "assets/Layer 2-1@2x.png",
+        menu_icon: "assets/more_horiz_FILL0_wght300_GRAD0_opsz24.svg",
+        vitals: [
+          { type: "Respiratory Rate", value: 20, unit: "bpm", status: "Slightly Elevated" },
+          { type: "Temperature", value: 98.6, unit: "°F", status: "Normal" },
+          { type: "Heart Rate", value: 78, unit: "bpm", status: "Elevated" }
+        ],
+        lab_results: [
+          { name: "Blood Tests", icon: "assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg", highlighted: false },
+          { name: "CT Scans", icon: "assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg", highlighted: true },
+          { name: "Radiology Reports", icon: "assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg", highlighted: false },
+          { name: "X-Rays", icon: "assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg", highlighted: false },
+          { name: "Urine Test", icon: "assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg", highlighted: false },
+          { name: "Blood Tests", icon: "assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg", highlighted: false },
+          { name: "CT Scans", icon: "assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg", highlighted: true }
+        ],
+        diagnosis_list: [
+          { problem: "Hypertension", description: "Chronic high blood pressure", status: "Under Observation" },
+          { problem: "Type 2 Diabetes", description: "Insulin resistance and elevated blood sugar", status: "Cured" },
+          { problem: "Asthma", description: "Recurrent episodes of bronchial constriction", status: "Inactive" },
+          { problem: "Type 1 Diabetes", description: "Insulin resistance and elevated blood sugar", status: "Under Observation" },
+          { problem: "Iron Deficiency", description: "Supplement intake and adjusting the diet", status: "Under Observation" },
+          { problem: "Hypertension", description: "Chronic high blood pressure", status: "Under Observation" },
+          { problem: "Type 2 Diabetes", description: "Insulin resistance and elevated blood sugar", status: "Cured" },
+          { problem: "Asthma", description: "Recurrent episodes of bronchial constriction", status: "Inactive" },
+          { problem: "Type 1 Diabetes", description: "Insulin resistance and elevated blood sugar", status: "Under Observation" }
+        ]
+      }
+    ];
+  }
+
   renderPatients();
+
+  if (patients.length > 0) {
+    const fullPatient = patients[0];
+    renderPatientDetails(fullPatient);
+    renderLabResults(fullPatient);
+    renderDiagnosisList(fullPatient);
+    renderVitals(fullPatient);
+
+    const bpData = [
+      { date: "2023-10-01", systolic: 120, diastolic: 80 },
+      { date: "2023-11-01", systolic: 130, diastolic: 90 },
+      { date: "2023-12-01", systolic: 160, diastolic: 100 },
+      { date: "2024-01-01", systolic: 140, diastolic: 80 },
+      { date: "2024-02-01", systolic: 160, diastolic: 70 },
+      { date: "2024-03-01", systolic: 160, diastolic: 78 }
+    ];
+    renderBloodPressureChart(bpData);
+  }
 }
 
 // Patients List
@@ -335,4 +399,5 @@ function renderBloodPressureChart(bpData) {
   document.getElementById('diastolicStatus').className = 'status ' + (
     latestDiastolic > 90 ? 'high' : latestDiastolic < 70 ? 'low' : 'normal'
   );
+
 }
